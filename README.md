@@ -22,4 +22,8 @@ included in your distribution.
 #### Windows
 
 See [this utility](http://tetzfiles.com/eric/code/keyrate.zip) with source
-included. Usage is `keyrate <delay> <repeat>`.
+included. Usage is `keyrate <delay> <repeat>`. Use `keyrate` without arguments
+in order to disable the override.
+
+The author of this program, who goes by the handle "Mud" on StackOverflow,
+has [allowed its redistribution without restrictions](http://stackoverflow.com/questions/171326/how-can-i-increase-the-key-repeat-rate-beyond-the-oss-limit/11056655?noredirect=1#comment54131685_11056655).
