@@ -6,22 +6,21 @@ use v6;
 
 shell "stty raw -echo time 1";
 
-my $timeout = 0.1;
+my $timeout = 0.05;
 my $chan = Channel.new;
 my $cancellation = $*SCHEDULER.cue({
   for 0 ..^ 1 {
     my ($b, $ts) = $chan.poll;
     if $ts && now - $ts > $timeout {
       if $b && $b == 27 {
-        my ($c, $) = $chan.poll;
-        my ($d, $) = $chan.poll;
-        # print "[$c $d] ";
+        my ($c, $) = $chan.receive;
+        my ($d, $) = $chan.receive;
       }
       redo;
     }
     if $b && $b == 27 {
-      my ($c, $) = $chan.poll;
-      my ($d, $) = $chan.poll;
+      my ($c, $) = $chan.receive;
+      my ($d, $) = $chan.receive;
       given $c {
         when 91 {
           given $d {
