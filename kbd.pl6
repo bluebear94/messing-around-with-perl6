@@ -46,4 +46,7 @@ loop {
   last if $b == 113;
 }
 
-END shell "stty cooked echo";
+END {
+  shell "stty cooked echo";
+  $cancellation.cancel;
+}
